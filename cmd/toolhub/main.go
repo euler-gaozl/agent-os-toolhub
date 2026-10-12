@@ -15,6 +15,9 @@ import (
 
 func main() {
 	servicehost.Main(servicehost.Options{Role: "toolhub", Port: "8091", Database: true, Concurrency: 4, Authorize: toolhub.Authorize, Readiness: toolhub.Readiness}, func(ctx context.Context, p *pgxpool.Pool, c servicehttp.Config) (http.Handler, func(context.Context) error, error) {
+		if err := applyLocalDefaults(); err != nil {
+			return nil, nil, err
+		}
 		client := servicehost.Client()
 		if client.RegistryURL == "" || client.RuntimeURL == "" {
 			return nil, nil, errors.New("REGISTRY_URL and RUNTIME_URL required")
