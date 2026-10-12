@@ -1,0 +1,23 @@
+{
+  "schema": "toolhub",
+  "migration_owner": "toolhub",
+  "backward_compatible": true,
+  "contract": {
+    "http": "agentos-http-v0.6-notes-lifecycle",
+    "tools": [
+      "knowledge_search",
+      "note_save",
+      "artifact_read",
+      "spawn_agent",
+      "sandbox_exec",
+      "document_read",
+      "run_recall",
+      "note_revise",
+      "note_retire"
+    ],
+    "engines": [],
+    "data": "toolhub-v0.6-notes-lifecycle"
+  },
+  "format": 1,
+  "role": "toolhub"
+}
